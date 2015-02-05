@@ -1,0 +1,36 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>   
+#include<ctime>
+using namespace std;
+
+int main()
+{
+	srand(time(NULL)); //random number generator seed (must be included)
+	
+	string playerName;
+	int num;
+	int guess;
+	
+	cout << "What is your name?" << endl;
+	cin >> playerName;
+	
+	cout << "Hello " << playerName;
+	
+	do{
+		cout<<" ! Guess a number between 1 - 10!"<<endl;
+		cin >> guess;
+		
+		num=1+rand()%10; //generates a random number between 1-10 and sets the value into num
+		
+		if(guess==num)
+		cout << "So you guessed correct! Nice guessing, " << playerName << "!" << endl;
+		else //you dont need to use else if and type in another condition, since if they are not equal they are obviously 100% not equal
+		cout << "So you guessed wrong! Try again, " << playerName << "!" << endl<<endl;
+		
+				
+	}while(guess!=num); //which means as long as your guess is not equal to the num the loop will start again AND num will have a new random number where if you want the game to continue with the same random number generated, just move the num=1+rand()%10; line outside on top of the loop, and if the player guessed right the loop will stop.
+
+system("PAUSE");
+return 0;
+}
